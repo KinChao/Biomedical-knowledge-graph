@@ -10,8 +10,7 @@ gene sub entity,
   owns gene-symbol,
   owns entrez-id,
   plays gene-protein-encoding:encoding-gene,
-  plays transcription:transcribing-gene,
-	plays translation:translating-transcript;
+  plays transcription:transcribing-gene;
 
 
 transcript sub entity,
