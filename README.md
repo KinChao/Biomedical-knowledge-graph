@@ -20,13 +20,15 @@ cd C:\Users\mqcha\Downloads\typdb
 
 Run the migrate file with the following code:
 
-python migrator.py -n x      x=number of threads used in cpu
+python migrator.py -n x   ----  x=number of threads used in cpu
 e.g.         python migrator.py -n 8
 
 If the database already existed, use the following code instead:
 
-python migrator.py -n x -f TRUE      x=number of threads used in cpu
+python migrator.py -n x -f TRUE  --- x=number of threads used in cpu
  
+ 
+Query example: 
 example query using typedb workbase:
 
 match
