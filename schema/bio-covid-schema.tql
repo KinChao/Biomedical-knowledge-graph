@@ -1,0 +1,55 @@
+define
+
+
+organism sub entity,
+	owns organism-name,
+	plays organism-association:associated-organism;
+
+
+gene sub entity,
+  owns gene-symbol,
+  owns entrez-id,
+  plays gene-protein-encoding:encoding-gene,
+  plays transcription:transcribing-gene,
+	plays translation:translating-transcript;
+
+
+transcript sub entity,
+	owns ensembl-transcript-stable-id,
+	plays transcription:encoded-transcript,
+	plays translation:translating-transcript;
+
+protein sub entity,
+	owns uniprot-id,
+	owns uniprot-name,
+	owns function-description,
+	owns uniprot-entry-name,
+	plays organism-association:associating,
+	plays gene-protein-encoding:encoded-protein,
+	plays translation:translated-protein;
+
+organism-association sub relation,
+	relates associated-organism,
+	relates associating;
+
+gene-protein-encoding sub relation,
+	relates encoding-gene,
+	relates encoded-protein;
+
+translation sub relation,
+	relates translated-protein,
+	relates translating-transcript;
+
+transcription sub relation,
+	relates transcribing-gene,
+	relates encoded-transcript;
+
+organism-name sub attribute, value string;
+ensembl-transcript-stable-id sub attribute, value string;
+gene-symbol sub attribute, value string;
+entrez-id sub attribute, value string;
+ensembl-transcript-stable-id sub attribute, value string;
+uniprot-id sub attribute, value string;
+uniprot-name sub attribute, value string;
+function-description sub attribute, value string;
+uniprot-entry-name sub attribute, value string;
