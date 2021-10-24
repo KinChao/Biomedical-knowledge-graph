@@ -42,7 +42,8 @@ $h isa organism, has 'organism-name'
 (associated-organism: $h, associating: $p) isa organism-association 
 (encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
 
-![query_1](Images/1.jpg)
+![1](https://user-images.githubusercontent.com/87667384/138601514-0bc6c438-0e77-4769-b7b6-42a3bdb51811.JPG)
+
 
 ```
 
@@ -65,6 +66,6 @@ $g isa gene, has gene-symbol "YWHAG";
 $p isa protein;
 $1 ($g, $p) isa gene-protein-encoding; offset 0; limit 30;
 
-![query_1](Images/2.jpg)
+![2](https://user-images.githubusercontent.com/87667384/138601510-35c030bb-a427-4e09-871f-18e5648fc463.JPG)
 
 ```
