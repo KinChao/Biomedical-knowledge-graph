@@ -41,6 +41,9 @@ $h isa organism, has 'organism-name'
 (transcribing-gene: $g, encoded-transcript:$t) isa transcription 
 (associated-organism: $h, associating: $p) isa organism-association 
 (encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
+
+![query_1](Images/1.jpg)
+
 ```
 
 
@@ -61,4 +64,7 @@ match
 $g isa gene, has gene-symbol "YWHAG";
 $p isa protein;
 $1 ($g, $p) isa gene-protein-encoding; offset 0; limit 30;
+
+![query_1](Images/2.jpg)
+
 ```
