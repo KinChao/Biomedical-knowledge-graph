@@ -47,7 +47,7 @@ $h isa organism, has 'organism-name'
 
 ## Examples query with typeDB Workbase
 ```bash
-Retrun the encoded protein with the encoding gene symbol "YWHAG"
+#Retrun the encoded protein with the encoding gene symbol "YWHAG"
 
 match
 $g isa gene, has gene-symbol "YWHAG";
@@ -58,7 +58,7 @@ $1 ($g, $p) isa gene-protein-encoding;
 ![Query 1](Images/1.JPG)
 
 ```bash
-Get the translated-protein and the transcribing-gene with the 'ensembl-transcript-stable-id' of 'ENST00000307630'
+#Get the translated-protein and the transcribing-gene with the 'ensembl-transcript-stable-id' of 'ENST00000307630'
 
 match
 $t isa transcript, has ensembl-transcript-stable-id "ENST00000307630";
