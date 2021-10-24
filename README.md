@@ -34,14 +34,14 @@ For help with the migrator script command line options:
 ## Uniprot dataset glossary
 
 ```bash
-$t isa transcript, has 'ensembl-transcript-stable-id' 
-$p isa protein, has 'uniprot-name', 'uniprot-name', 'function-description', 'uniprot-entry-name'
-$g isa gene, has 'gene-symbol', 'entrez-id' 
-$h isa organism, has 'organism-name' 
-(translating-transcript:$t, translated-protein: $p) isa translation 
-(transcribing-gene: $g, encoded-transcript:$t) isa transcription 
-(associated-organism: $h, associating: $p) isa organism-association 
-(encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
+# $t isa transcript, has 'ensembl-transcript-stable-id' 
+# $p isa protein, has 'uniprot-name', 'uniprot-name', 'function-description', 'uniprot-entry-name'
+# $g isa gene, has 'gene-symbol', 'entrez-id' 
+# $h isa organism, has 'organism-name' 
+# (translating-transcript:$t, translated-protein: $p) isa translation 
+# (transcribing-gene: $g, encoded-transcript:$t) isa transcription 
+# (associated-organism: $h, associating: $p) isa organism-association 
+# (encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
 
 ```
 
