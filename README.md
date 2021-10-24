@@ -1,8 +1,9 @@
 # Biomedical-knowledge-graph -- typedb
-This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk), a second year Chemistry student at Imperial College, supervised by Dr Sarah Rouse (Life Science Department, Imperial College)
+This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk, a second year Chemistry student at Imperial College), supervised by Dr Sarah Rouse (s.rouse@imperial.ac.uk, Life Science Department, Imperial College)
 
 ## Last update 24/10/2021 - Complete integration of the Uniprot dataset
-
+potential integration of another dataset before 14/11/2021 <br/>
+integrate/ new independent code for the dataset from the data company as soon as we received the data 
 ## Installation guide
 **Prerequesites**: Python >3.6, [TypeDB Core 2.4.0](https://vaticle.com/download#core), [TypeDB Python Client API 2.2.0](https://docs.vaticle.com/docs/client-api/python), [Workbase 2.4.0](https://vaticle.com/download#workbase) (typeDB Studio).
 
@@ -42,11 +43,7 @@ $h isa organism, has 'organism-name'
 (associated-organism: $h, associating: $p) isa organism-association 
 (encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
 
-![1](https://user-images.githubusercontent.com/87667384/138601514-0bc6c438-0e77-4769-b7b6-42a3bdb51811.JPG)
-
-
 ```
-
 
 ## Examples query with typeDB Workbase
 ```bash
@@ -58,14 +55,16 @@ $p isa protein;
 $1 ($g, $p) isa gene-protein-encoding;
 ```
 
+![Query 1](Images/1.JPG)
+
 ```bash
 Get the translated-protein and the transcribing-gene with the 'ensembl-transcript-stable-id' of 'ENST00000307630'
 
 match
-$g isa gene, has gene-symbol "YWHAG";
+$t isa transcript, has ensembl-transcript-stable-id "ENST00000307630";
 $p isa protein;
-$1 ($g, $p) isa gene-protein-encoding; offset 0; limit 30;
-
-![2](https://user-images.githubusercontent.com/87667384/138601510-35c030bb-a427-4e09-871f-18e5648fc463.JPG)
-
+$1 ($t, $p) isa translation; 
+$g isa gene;
+$2 ($t, $g) isa transcription;
 ```
+![Query 2](Images/2.JPG)
