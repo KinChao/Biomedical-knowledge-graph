@@ -1,55 +1,54 @@
-Installation
+# Biomedical-knowledge-graph -- typedb
+This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk, a second year Chemistry student) at Imperial College, supervised by Dr Sarah Rouse (Life Science Department, Imperial College)
 
-Install typedb
-https://vaticle.com/download 
+## Last update 24/10/2021 - Complete integration of the Uniprot dataset
 
-Install typedb workspace/ typedb studio
-https://vaticle.com/download#typedb-workbase
+## Installation guide
+**Prerequesites**: Python >3.6, [TypeDB Core 2.4.0](https://vaticle.com/download#core), [TypeDB Python Client API 2.2.0](https://docs.vaticle.com/docs/client-api/python), [Workbase 2.4.0](https://vaticle.com/download#workbase) (typeDB Studio).
 
-open cmd and cd to the typedb folder, for example:
+Clone this repo:
+```bash 
+    https://github.com/KinChao/Biomedical-knowledge-graph.git
+```
+cd into the typedb-all folder and start typedb
+```bash 
+   typedb server
+```
+cd into the project folder and start the migrator script
 
-cd C:\Users\mqcha\Downloads\typedb-all-windows-2.4.0\typedb-all-windows-2.4.0
+```bash
+    python migrator.py -n 4 # insert using 4 threads
+```
+If the database already existed, use the following code instead
 
-open typedb server using the following code
+```bash
+    python migrator.py -n 4 -f TRUE
+```
+For help with the migrator script command line options:
 
-typedb server
+```bash
+    python migrator.py -h
+```
 
-open another cmd and cd to the project folder, for example:
+# Uniprot dataset glossary
 
-cd C:\Users\mqcha\Downloads\typedb\Biomedical-knowledge-graph
-
-Run the migrate file with the following code:
-
-python migrator.py -n x   ----  x=number of threads used in cpu
-e.g.         python migrator.py -n 8
-
-If the database already existed, use the following code instead:
-
-python migrator.py -n x -f TRUE  --- x=number of threads used in cpu
- 
-
-
-Uniprot dataset glossary
-$t isa transcript, has 'ensembl-transcript-stable-id'
+```bash
+$t isa transcript, has 'ensembl-transcript-stable-id' 
 $p isa protein, has 'uniprot-name', 'uniprot-name', 'function-description', 'uniprot-entry-name'
-$g isa gene, has 'gene-symbol', 'entrez-id'
-$h isa organism, has 'organism-name'
-(translating-transcript:$t, translated-protein: $p) isa translation
-(transcribing-gene: $g, encoded-transcript:$t) isa transcription
-(associated-organism: $h, associating: $p) isa organism-association
-(encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding
+$g isa gene, has 'gene-symbol', 'entrez-id' 
+$h isa organism, has 'organism-name' 
+(translating-transcript:$t, translated-protein: $p) isa translation 
+(transcribing-gene: $g, encoded-transcript:$t) isa transcription 
+(associated-organism: $h, associating: $p) isa organism-association 
+(encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding 
+```
 
 
-
-Query example: 
-example query using typedb workbase:
+# Examples query with typeDB Workbase
 
 match
-
 $g isa gene, has gene-symbol "YWHAG";
-
 $p isa protein;
-
 $1 ($g, $p) isa gene-protein-encoding;
  
 
