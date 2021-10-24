@@ -16,7 +16,7 @@ typedb server
 
 open another cmd and cd to the project folder, for example:
 
-cd C:\Users\mqcha\Downloads\typdb
+cd C:\Users\mqcha\Downloads\typedb\Biomedical-knowledge-graph
 
 Run the migrate file with the following code:
 
@@ -27,7 +27,20 @@ If the database already existed, use the following code instead:
 
 python migrator.py -n x -f TRUE  --- x=number of threads used in cpu
  
- 
+
+
+Uniprot dataset glossary
+$t isa transcript, has 'ensembl-transcript-stable-id'
+$p isa protein, has 'uniprot-name', 'uniprot-name', 'function-description', 'uniprot-entry-name'
+$g isa gene, has 'gene-symbol', 'entrez-id'
+$h isa organism, has 'organism-name'
+(translating-transcript:$t, translated-protein: $p) isa translation
+(transcribing-gene: $g, encoded-transcript:$t) isa transcription
+(associated-organism: $h, associating: $p) isa organism-association
+(encoding-gene: $g, encoded-protein: $p) isa gene-protein-encoding
+
+
+
 Query example: 
 example query using typedb workbase:
 
