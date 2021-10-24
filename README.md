@@ -1,5 +1,5 @@
 # Biomedical-knowledge-graph -- typedb
-This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk, a second year Chemistry student) at Imperial College, supervised by Dr Sarah Rouse (Life Science Department, Imperial College)
+This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk), a second year Chemistry student at Imperial College, supervised by Dr Sarah Rouse (Life Science Department, Imperial College)
 
 ## Last update 24/10/2021 - Complete integration of the Uniprot dataset
 
@@ -30,7 +30,7 @@ For help with the migrator script command line options:
     python migrator.py -h
 ```
 
-# Uniprot dataset glossary
+## Uniprot dataset glossary
 
 ```bash
 $t isa transcript, has 'ensembl-transcript-stable-id' 
@@ -44,11 +44,21 @@ $h isa organism, has 'organism-name'
 ```
 
 
-# Examples query with typeDB Workbase
+## Examples query with typeDB Workbase
+```bash
+Retrun the encoded protein with the encoding gene symbol "YWHAG"
 
 match
 $g isa gene, has gene-symbol "YWHAG";
 $p isa protein;
 $1 ($g, $p) isa gene-protein-encoding;
- 
+```
 
+```bash
+Get the translated-protein and the transcribing-gene with the 'ensembl-transcript-stable-id' of 'ENST00000307630'
+
+match
+$g isa gene, has gene-symbol "YWHAG";
+$p isa protein;
+$1 ($g, $p) isa gene-protein-encoding; offset 0; limit 30;
+```
