@@ -1,9 +1,8 @@
-# Biomedical-knowledge-graph -- TypeDB
+# Biomedical-knowledge-graph -- TypeDB (Uniprot example)
 This is a summer remote project (extended to term-time) by Kin Chao (kwc20@ic.ac.uk, a second year Chemistry student at Imperial College), supervised by Dr Sarah Rouse (s.rouse@imperial.ac.uk, Life Science Department, Imperial College). Some of the codes are forked from [BioGrakn Covid](https://github.com/vaticle/typedb-data-bio-covid).
 
 ## Latest update 24/10/2021 - Complete integration of the Uniprot dataset
-potential integration of another dataset before 14/11/2021 <br/>
-integrate/ new independent code for the dataset from the data company as soon as we received the data 
+
 ## Installation guide
 **Prerequesites**: Python >3.6, [TypeDB Core 2.4.0](https://vaticle.com/download#core), [TypeDB Python Client API 2.2.0](https://docs.vaticle.com/docs/client-api/python), [Workbase 2.4.0](https://vaticle.com/download#workbase) (typeDB Studio).
 
